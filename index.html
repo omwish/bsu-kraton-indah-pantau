@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light">
+<title>Pantau Bank Sampah Kraton Indah Lestari</title>
+<style>
+:root{--green:#176b45;--green2:#238653;--pale:#eaf6ee;--ink:#173326;--muted:#607568;--line:#dce9df;--white:#fff}
+*{box-sizing:border-box}
+body{margin:0;background:#f4f8f4;color:var(--ink);font:16px/1.5 system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif}
+header{background:linear-gradient(135deg,#145c3b,#2c965d);color:white;padding:30px 18px 34px}
+.wrap{width:min(1100px,100% - 28px);margin:auto}
+.kicker{font-size:.8rem;letter-spacing:.12em;text-transform:uppercase;opacity:.88;font-weight:700}
+h1{font-size:clamp(1.65rem,4vw,2.5rem);line-height:1.15;margin:8px 0}
+header p{margin:8px 0 0;max-width:720px;color:#e6f7eb}
+.pill{display:inline-block;margin-top:14px;padding:5px 11px;border:1px solid #bde5c9;border-radius:999px;font-size:.82rem;background:#ffffff18}
+main{padding:22px 0 36px}
+.notice{background:#fff;border:1px solid var(--line);border-left:4px solid var(--green2);border-radius:12px;padding:12px 15px;color:var(--muted);font-size:.92rem;margin-bottom:18px}
+.cards{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:13px;margin-bottom:22px}
+.card,.panel{background:var(--white);border:1px solid var(--line);border-radius:15px;padding:17px;box-shadow:0 3px 12px #17332608}
+.card .label{font-size:.88rem;color:var(--muted)}
+.card .value{font-size:clamp(1.25rem,3vw,1.8rem);font-weight:800;letter-spacing:-.03em;margin-top:7px;overflow-wrap:anywhere}
+.card .sub{font-size:.8rem;color:var(--muted);margin-top:3px}
+.panels{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:18px}
+h2{font-size:1.15rem;margin:0 0 12px}
+h3{font-size:1rem;margin:0 0 8px}
+.small{font-size:.86rem;color:var(--muted)}
+.table-wrap{overflow-x:auto}
+table{border-collapse:collapse;width:100%;font-size:.9rem;white-space:nowrap}
+th,td{padding:10px 9px;border-bottom:1px solid #edf2ee;text-align:right}
+th{font-size:.78rem;color:var(--muted);font-weight:700;background:#f7faf7}
+th:first-child,td:first-child{text-align:left}
+tbody tr:last-child td{border-bottom:0}
+tfoot td{font-weight:800;border-top:2px solid var(--line)}
+.chart{display:flex;flex-direction:column;gap:12px}
+.bar-row{display:grid;grid-template-columns:minmax(90px,145px) 1fr;gap:10px;align-items:center}
+.bar-label{font-size:.85rem;overflow-wrap:anywhere}
+.bar-track{height:17px;background:#edf4ef;border-radius:999px;overflow:hidden}
+.bar{height:100%;min-width:2px;background:linear-gradient(90deg,#2a8b55,#75c98d);border-radius:999px}
+.chart-value{font-size:.8rem;color:var(--muted);margin-top:2px}
+footer{text-align:center;color:var(--muted);font-size:.82rem;padding:8px 14px 28px}
+.error{color:#9e2b2b;background:#fff1f1;border:1px solid #f1cccc;padding:14px;border-radius:10px}
+@media(max-width:800px){.cards{grid-template-columns:repeat(2,minmax(0,1fr))}.panels{grid-template-columns:1fr}}
+@media(max-width:420px){.wrap{width:min(100% - 20px,1100px)}.card{padding:13px}.card .value{font-size:1.25rem}.bar-row{grid-template-columns:95px 1fr}}
+</style>
+</head>
+<body>
+<header><div class="wrap">
+<div class="kicker">Mode Pantau · Baca Saja</div>
+<h1 id="judul">Bank Sampah Kraton Indah Lestari</h1>
+<p>Ringkasan kegiatan dan hasil pengelolaan sampah. Halaman ini hanya untuk melihat rekap, bukan untuk mengubah data.</p>
+<span class="pill">♻️ Pilah · Timbang · Catat</span>
+</div></header>
+<main class="wrap">
+<div id="app"><p class="notice">Memuat rekap data…</p></div>
+</main>
+<footer>© <span id="tahun"></span> Bank Sampah Kraton Indah Lestari · Mode Pantau Baca Saja</footer>
+<script>
+const rupiah = n => new Intl.NumberFormat('id-ID',{style:'currency',currency:'IDR',maximumFractionDigits:0}).format(Number(n)||0);
+const angka = n => new Intl.NumberFormat('id-ID',{maximumFractionDigits:2}).format(Number(n)||0);
+const aman = s => String(s ?? '').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const bulanNama = s => {const [y,m]=String(s||'').split('-');const nama=['Januari','Februari','Maret','April','Mei','Juni','Juli','Agustus','September','Oktober','November','Desember'];return (nama[Number(m)-1]||s)+' '+(y||'')};
+document.getElementById('tahun').textContent = new Date().getFullYear();
+fetch('./data-pantau.json',{cache:'no-store'}).then(r=>{if(!r.ok)throw new Error('File rekap tidak ditemukan');return r.json()}).then(d=>{
+ document.getElementById('judul').textContent=d.judul||'Bank Sampah';
+ const periode=d.periode ? `${d.periode.mulai||'—'} sampai ${d.periode.sampai||'—'}` : 'Periode belum tersedia';
+ const bulanan=Array.isArray(d.rekapBulanan)?d.rekapBulanan:[];
+ const jenis=Array.isArray(d.rekapJenis)?d.rekapJenis:[];
+ const totalBerat=Number(d.totalBeratKg)||0, totalBsi=Number(d.totalNilaiBsiRp)||0, totalNasabah=Number(d.totalNilaiNasabahRp)||0;
+ const totalTransaksi=Number(d.jumlahTransaksi)||bulanan.reduce((s,x)=>s+(Number(x.jumlahTransaksi)||0),0);
+ const maxBerat=Math.max(1,...bulanan.map(x=>Number(x.totalBeratKg)||0));
+ const topJenis=[...jenis].sort((a,b)=>(Number(b.totalBeratKg)||0)-(Number(a.totalBeratKg)||0)).slice(0,8);
+ const monthlyRows=bulanan.map(x=>`<tr><td>${aman(bulanNama(x.bulan))}</td><td>${angka(x.jumlahTransaksi)}</td><td>${angka(x.totalBeratKg)} kg</td><td>${rupiah(x.totalNilaiBsiRp)}</td><td>${rupiah(x.totalNilaiNasabahRp)}</td></tr>`).join('');
+ const jenisRows=[...jenis].sort((a,b)=>(Number(b.totalBeratKg)||0)-(Number(a.totalBeratKg)||0)).map(x=>`<tr><td>${aman(x.nama)}</td><td>${angka(x.totalBeratKg)} kg</td><td>${rupiah(x.totalNilaiBsiRp)}</td><td>${rupiah(x.totalNilaiNasabahRp)}</td></tr>`).join('');
+ const bars=bulanan.map(x=>{const w=Number(x.totalBeratKg)||0;return `<div><div class="bar-row"><div class="bar-label">${aman(bulanNama(x.bulan))}</div><div><div class="bar-track"><div class="bar" style="width:${Math.min(100,w/maxBerat*100)}%"></div></div><div class="chart-value">${angka(w)} kg · ${angka(x.jumlahTransaksi)} transaksi</div></div></div>`}).join('');
+ document.getElementById('app').innerHTML=`
+ <div class="notice"><strong>Periode rekap:</strong> ${aman(periode)}. Angka berikut merupakan rekap transaksi yang tersedia pada data pantau.</div>
+ <section class="cards">
+  <div class="card"><div class="label">Total sampah terkumpul</div><div class="value">${angka(totalBerat)} kg</div><div class="sub">Akumulasi berat setoran</div></div>
+  <div class="card"><div class="label">Jumlah transaksi</div><div class="value">${angka(totalTransaksi)}</div><div class="sub">Catatan setoran</div></div>
+  <div class="card"><div class="label">Nilai untuk BSU</div><div class="value">${rupiah(totalBsi)}</div><div class="sub">Akumulasi nilai BSU</div></div>
+  <div class="card"><div class="label">Nilai untuk nasabah</div><div class="value">${rupiah(totalNasabah)}</div><div class="sub">Akumulasi nilai setoran</div></div>
+ </section>
+ <section class="panels">
+  <div class="panel"><h2>Grafik berat per bulan</h2><p class="small">Perbandingan berat sampah yang tercatat setiap bulan.</p><div class="chart">${bars||'<p class="small">Belum ada data bulanan.</p>'}</div></div>
+  <div class="panel"><h2>Rekap bulanan</h2><p class="small">Ringkasan jumlah transaksi, berat, dan nilai.</p><div class="table-wrap"><table><thead><tr><th>Bulan</th><th>Transaksi</th><th>Berat</th><th>Nilai BSU</th><th>Nilai nasabah</th></tr></thead><tbody>${monthlyRows||'<tr><td colspan="5">Belum ada data.</td></tr>'}</tbody><tfoot><tr><td>Total</td><td>${angka(totalTransaksi)}</td><td>${angka(totalBerat)} kg</td><td>${rupiah(totalBsi)}</td><td>${rupiah(totalNasabah)}</td></tr></tfoot></table></div></div>
+ </section>
+ <section class="panel"><h2>Rekap per jenis sampah</h2><p class="small">Diurutkan dari berat terbesar. Data ditampilkan secara agregat tanpa nama atau nomor register nasabah.</p><div class="table-wrap"><table><thead><tr><th>Jenis sampah</th><th>Berat</th><th>Nilai BSU</th><th>Nilai nasabah</th></tr></thead><tbody>${jenisRows||'<tr><td colspan="4">Belum ada data.</td></tr>'}</tbody><tfoot><tr><td>Total</td><td>${angka(totalBerat)} kg</td><td>${rupiah(totalBsi)}</td><td>${rupiah(totalNasabah)}</td></tr></tfoot></table></div></section>`;
+}).catch(e=>{document.getElementById('app').innerHTML=`<div class="error"><strong>Rekap belum bisa ditampilkan.</strong><br>${aman(e.message)}. Pastikan file <code>data-pantau.json</code> berada satu folder dengan <code>index.html</code>.</div>`});
+</script>
+</body></html>

@@ -1,0 +1,236 @@
+{
+  "judul": "Bank Sampah Kraton Indah Lestari",
+  "mode": "Pantau — Baca Saja",
+  "jumlahTransaksi": 38,
+  "jumlahJenisSampah": 56,
+  "totalBeratKg": 258.5,
+  "totalNilaiBsiRp": 585390,
+  "totalNilaiNasabahRp": 409773,
+  "rekapBulanan": [
+    {
+      "bulan": "2026-08",
+      "jumlahTransaksi": 18,
+      "totalBeratKg": 71.0,
+      "totalNilaiBsiRp": 155000,
+      "totalNilaiNasabahRp": 108500
+    },
+    {
+      "bulan": "2026-09",
+      "jumlahTransaksi": 14,
+      "totalBeratKg": 143.3,
+      "totalNilaiBsiRp": 339650,
+      "totalNilaiNasabahRp": 237755
+    },
+    {
+      "bulan": "2026-10",
+      "jumlahTransaksi": 6,
+      "totalBeratKg": 44.2,
+      "totalNilaiBsiRp": 90740,
+      "totalNilaiNasabahRp": 63518
+    }
+  ],
+  "rekapJenis": [
+    {
+      "nama": "Accu",
+      "totalBeratKg": 2.0,
+      "totalNilaiBsiRp": 20000,
+      "totalNilaiNasabahRp": 14000
+    },
+    {
+      "nama": "Bak hitam",
+      "totalBeratKg": 4.5,
+      "totalNilaiBsiRp": 6750,
+      "totalNilaiNasabahRp": 4725
+    },
+    {
+      "nama": "Bak putih/HDPE",
+      "totalBeratKg": 3.3,
+      "totalNilaiBsiRp": 9900,
+      "totalNilaiNasabahRp": 6930
+    },
+    {
+      "nama": "Bak warna",
+      "totalBeratKg": 14.3,
+      "totalNilaiBsiRp": 37180,
+      "totalNilaiNasabahRp": 26026
+    },
+    {
+      "nama": "Beling",
+      "totalBeratKg": 15.0,
+      "totalNilaiBsiRp": 3000,
+      "totalNilaiNasabahRp": 2100
+    },
+    {
+      "nama": "Besi",
+      "totalBeratKg": 5.4,
+      "totalNilaiBsiRp": 25800,
+      "totalNilaiNasabahRp": 18060
+    },
+    {
+      "nama": "Botol campur",
+      "totalBeratKg": 22.6,
+      "totalNilaiBsiRp": 45200,
+      "totalNilaiNasabahRp": 31640
+    },
+    {
+      "nama": "Botol kotor",
+      "totalBeratKg": 4.2,
+      "totalNilaiBsiRp": 8400,
+      "totalNilaiNasabahRp": 5880
+    },
+    {
+      "nama": "Botol putih bersih",
+      "totalBeratKg": 15.6,
+      "totalNilaiBsiRp": 96200,
+      "totalNilaiNasabahRp": 67340
+    },
+    {
+      "nama": "Botol semu bersih",
+      "totalBeratKg": 3.1,
+      "totalNilaiBsiRp": 16800,
+      "totalNilaiNasabahRp": 11760
+    },
+    {
+      "nama": "Botol warna",
+      "totalBeratKg": 0.6,
+      "totalNilaiBsiRp": 1200,
+      "totalNilaiNasabahRp": 840
+    },
+    {
+      "nama": "Buram/Majalah/Paket",
+      "totalBeratKg": 4.0,
+      "totalNilaiBsiRp": 4000,
+      "totalNilaiNasabahRp": 2800
+    },
+    {
+      "nama": "Campur",
+      "totalBeratKg": 28.5,
+      "totalNilaiBsiRp": 57000,
+      "totalNilaiNasabahRp": 39900
+    },
+    {
+      "nama": "Duplek",
+      "totalBeratKg": 24.9,
+      "totalNilaiBsiRp": 19870,
+      "totalNilaiNasabahRp": 13909
+    },
+    {
+      "nama": "Gelas bersih",
+      "totalBeratKg": 0.4,
+      "totalNilaiBsiRp": 2600,
+      "totalNilaiNasabahRp": 1820
+    },
+    {
+      "nama": "Gelas kotor",
+      "totalBeratKg": 1.0,
+      "totalNilaiBsiRp": 2500,
+      "totalNilaiNasabahRp": 1750
+    },
+    {
+      "nama": "Jelantah",
+      "totalBeratKg": 2.4,
+      "totalNilaiBsiRp": 6000,
+      "totalNilaiNasabahRp": 4200
+    },
+    {
+      "nama": "Kabel",
+      "totalBeratKg": 1.0,
+      "totalNilaiBsiRp": 2000,
+      "totalNilaiNasabahRp": 1400
+    },
+    {
+      "nama": "Kaleng",
+      "totalBeratKg": 5.6,
+      "totalNilaiBsiRp": 11960,
+      "totalNilaiNasabahRp": 8372
+    },
+    {
+      "nama": "Kardus",
+      "totalBeratKg": 41.0,
+      "totalNilaiBsiRp": 73050,
+      "totalNilaiNasabahRp": 51135
+    },
+    {
+      "nama": "Keras",
+      "totalBeratKg": 14.7,
+      "totalNilaiBsiRp": 4290,
+      "totalNilaiNasabahRp": 3003
+    },
+    {
+      "nama": "Keras (Helm)",
+      "totalBeratKg": 1.8,
+      "totalNilaiBsiRp": 270,
+      "totalNilaiNasabahRp": 189
+    },
+    {
+      "nama": "Kertas putih/HVS",
+      "totalBeratKg": 8.0,
+      "totalNilaiBsiRp": 13600,
+      "totalNilaiNasabahRp": 9520
+    },
+    {
+      "nama": "Kompor",
+      "totalBeratKg": 10.3,
+      "totalNilaiBsiRp": 20600,
+      "totalNilaiNasabahRp": 14420
+    },
+    {
+      "nama": "Kresek",
+      "totalBeratKg": 2.9,
+      "totalNilaiBsiRp": 870,
+      "totalNilaiNasabahRp": 609
+    },
+    {
+      "nama": "PS kaca/toples",
+      "totalBeratKg": 1.0,
+      "totalNilaiBsiRp": 3000,
+      "totalNilaiNasabahRp": 2100
+    },
+    {
+      "nama": "Ruca",
+      "totalBeratKg": 1.5,
+      "totalNilaiBsiRp": 25000,
+      "totalNilaiNasabahRp": 17500
+    },
+    {
+      "nama": "Sak",
+      "totalBeratKg": 5.4,
+      "totalNilaiBsiRp": 2100,
+      "totalNilaiNasabahRp": 1470
+    },
+    {
+      "nama": "Seng",
+      "totalBeratKg": 3.8,
+      "totalNilaiBsiRp": 6650,
+      "totalNilaiNasabahRp": 4655
+    },
+    {
+      "nama": "Stenlis",
+      "totalBeratKg": 2.0,
+      "totalNilaiBsiRp": 8000,
+      "totalNilaiNasabahRp": 5600
+    },
+    {
+      "nama": "Tutup botol",
+      "totalBeratKg": 1.4,
+      "totalNilaiBsiRp": 4000,
+      "totalNilaiNasabahRp": 2800
+    },
+    {
+      "nama": "Tutup galon",
+      "totalBeratKg": 2.3,
+      "totalNilaiBsiRp": 7600,
+      "totalNilaiNasabahRp": 5320
+    },
+    {
+      "nama": "Wajan",
+      "totalBeratKg": 4.0,
+      "totalNilaiBsiRp": 40000,
+      "totalNilaiNasabahRp": 28000
+    }
+  ],
+  "periode": {
+    "mulai": "2026-08-06",
+    "sampai": "2026-10-23"
+  }
+}
